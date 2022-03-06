@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = "panagiotis-matsinopoulos"
+    workspaces {
+      name = "panagiotis"
+    }
+  }
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -20,6 +27,6 @@ resource "aws_instance" "app_server" {
 
   tags = {
     environment = "experiment",
-    Name = var.instance_name
+    Name        = var.instance_name
   }
 }
